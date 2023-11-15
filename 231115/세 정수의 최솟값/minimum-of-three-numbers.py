@@ -7,5 +7,5 @@ if a < b and b < c and a < c:
     print(a)
 elif b < a and a < c and b < c:
     print(b)
-else:
+elif c < a and c < b and b < a:
     print(c)
