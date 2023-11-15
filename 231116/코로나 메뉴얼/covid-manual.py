@@ -16,7 +16,7 @@ if a == 'Y' and c == 'Y' and e == 'Y':
         print("E")
     else:
         print("N")
-if a=='Y' and c == 'Y':
+elif a=='Y' and c == 'Y':
     if b >= 37 and d >= 37:
         print("E")
     elif d>=37 and f>=37:
@@ -25,7 +25,7 @@ if a=='Y' and c == 'Y':
         print("E")
     else:
         print("N")
-if c == 'Y' and e == 'Y':
+elif c == 'Y' and e == 'Y':
     if b >= 37 and d >= 37:
         print("E")
     elif d>=37 and f>=37:
@@ -34,7 +34,7 @@ if c == 'Y' and e == 'Y':
         print("E")
     else:
         print("N")
-if a == 'Y' and e == 'Y':
+elif a == 'Y' and e == 'Y':
     if b >= 37 and d >= 37:
         print("E")
     elif d>=37 and f>=37:
