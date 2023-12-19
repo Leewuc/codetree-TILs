@@ -7,6 +7,6 @@ if a == 'A':
         print(i,end=' ')
         i += 1
 else:
-    for i in range(a1,1+1):
+    for i in range(a1,0):
         print(i,end=' ')
         i -= 1
