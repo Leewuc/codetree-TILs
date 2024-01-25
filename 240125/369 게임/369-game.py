@@ -7,6 +7,6 @@ def play_369_game(n):
             results.append(str(number))
     return ' '.join(results)
 
-n = 3
+n = int(input())
 game_results = play_369_game(n)
 print(game_results,end=" ")
