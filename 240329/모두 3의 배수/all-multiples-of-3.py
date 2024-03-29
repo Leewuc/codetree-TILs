@@ -1,9 +1,11 @@
-bb = False
-for i in range(1,6):
-    n = int(input())
-    if n % 3 == 0:
-        bb = True
-if bb == True:
-    print(1)
-else:
-    print(0)
+def check_multiple_of_3(numbers):
+    for number in numbers:
+        if number % 3 != 0:
+            return 0
+    return 1
+
+# 입력
+numbers = [int(input()) for _ in range(5)]
+
+# 출력
+print(check_multiple_of_3(numbers))
