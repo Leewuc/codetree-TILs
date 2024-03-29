@@ -1,11 +1,9 @@
 a,b,c = map(int,input().split())
-bb = False
+bb = True
 for i in range(a,b+1):
     if (i % c) == 0:
-        bb == True
-    elif (c % i) == 0:
-        bb == True
+        bb = False
 if bb == True:
-    print("NO")
-else:
     print("YES")
+else:
+    print("NO")
