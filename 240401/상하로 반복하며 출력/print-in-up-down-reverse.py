@@ -1,7 +1,11 @@
+# 변수 선언 및 입력
 n = int(input())
-
-# n값에 따라 일의 자리 숫자를 상하로 반복하여 출력
-for i in range(1, n+1):
-    for j in range(1, n+1):
-        print((i + j - 1) % n + 1, end="")
-    print()
+	
+# 상하로 반복하여 출력합니다.
+for i in range(n):
+	for j in range(n):
+		if j % 2 == 0:
+			print(i + 1, end="")
+		else:
+			print(n - i, end="")
+	print()
