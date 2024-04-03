@@ -1,13 +1,11 @@
-arr = list(map(int,input().split()))
-count = [0,0,0,0,0,0,0,0,0,0]
+counts = [0] * 11  # 10점 단위로 구분하기 위해 11개의 구간으로 나눔
+scores = list(map(int, input().split()))
 
-for i in arr :
-    for j in range(9,-1,-1) :
-        if int(i/10) == (j+1) :
-            count[j] += 1
-        elif i == 0:
-            break
+for score in scores:
+    if score == 0:
+        break
+    tens_digit = score // 10
+    counts[tens_digit] += 1
 
-
-for i in range(0,10) :
-    print(f"{100-(i*10)} - {count[9-i]}")
+for i in range(10, 0, -1):
+    print(f"{i}0 - {counts[i]}")
