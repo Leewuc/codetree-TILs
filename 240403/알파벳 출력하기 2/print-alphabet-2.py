@@ -5,5 +5,6 @@ for i in range(n):
     for j in range(n-i):
         print(chr(pred),end=" ")
         pred += 1
-        
+        if pred > 90:
+            pred = 65
     print()
