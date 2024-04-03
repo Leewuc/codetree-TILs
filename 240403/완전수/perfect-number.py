@@ -1,18 +1,11 @@
-arr = input().split()
-start = int(arr[0])
-end = int(arr[1])
-
-
-cnt = 0
-val = 0
-
-
-for i in range(start+1, end):
-    val = 0
-    for j in range(1, i):
-        if i % j == 0:
-            val += j
-    if val == i:
-        cnt += 1
-
-print(cnt)
+arr=input().split()
+a,b=int(arr[0]),int(arr[1])
+result=0
+for i in range(a,b+1):
+    cnt=0
+    for j in range(1,i):
+        if i%j==0:
+            cnt+=j
+    if cnt==i:
+        result+=1
+print(result)
