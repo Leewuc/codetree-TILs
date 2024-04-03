@@ -1,7 +1,7 @@
 n, q = map(int, input().split())
 elements = list(map(int, input().split()))
 
-for _ in range(q):
+for i in range(q):
     query = input().split()
     if query[0] == '1':
         idx = int(query[1])-1
