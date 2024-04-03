@@ -1,8 +1,10 @@
 n = int(input())
-arr = list(map(int,input().split()))
-cnt = 0
-for i in range(len(arr)):
-    if arr[i] == 2:
-        cnt += 1
-        if cnt == 3:
-            print(arr[i]+1)
+numbers = list(map(int, input().split()))
+
+count = 0
+for idx, num in enumerate(numbers):
+    if num == 2:
+        count += 1
+        if count == 3:
+            print(idx + 1)
+            break
