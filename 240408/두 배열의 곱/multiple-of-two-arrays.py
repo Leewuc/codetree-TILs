@@ -1,21 +1,20 @@
-n = 3
-lst = [
-    [0 for _ in range(n)]
-    for _ in range(n)
+arr_1 = [
+	list(map(int, input().split()))
+	for _ in range(3)
 ]
-lst1 = [
-    [0 for _ in range(n)]
-    for _ in range(n)
+_ = input()
+arr_2 = [
+	list(map(int, input().split()))
+	for _ in range(3)
 ]
-cnt = 1
-ccnt = 2
-lst2 = [0][0] * n
-for i in range(n):
-    for j in range(n):
-        lst[i][j] = cnt
-        lst1[i][j] = ccnt
-        cnt += 1
-        ccnt += 1
-        lst2 = lst[i][j] * lst1[i][j]
-        print(lst2,end=" ")
-    print()
+
+arr_3 = [
+	[0 for _ in range(3)]
+	for _ in range(3)
+]
+
+for i in range(3) :
+	for j in range(3) :
+		arr_3[i][j] = arr_1[i][j] * arr_2[i][j]
+		print(arr_3[i][j], end = " ")
+	print()
