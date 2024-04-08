@@ -1,8 +1,7 @@
 a,b = map(int,input().split())
 n1=[]
 n2=[]
-arr_3 =[[0 for _ in range(a)] for _ in 
-range(a)]
+arr_3 =[[0 for _ in range(b)] for _ in range(a)]
 for _ in range(a):
     n1.append(list(map(int,input().split())))
 
