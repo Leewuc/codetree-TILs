@@ -17,13 +17,16 @@ c = int(expression[2])
 
 if o == '+':
     result = add(a, c)
+    print(f"{a} {o} {c} = {result}")
 elif o == '-':
     result = subtract(a, c)
+    print(f"{a} {o} {c} = {result}")
 elif o == '*':
     result = multiply(a, c)
+    print(f"{a} {o} {c} = {result}")
 elif o == '/':
     result = divide(a, c)
+    print(f"{a} {o} {c} = {result}")
 else:
     result = False
-
-print(f"{a} {o} {c} = {result}")
+    print(f"{result}")
