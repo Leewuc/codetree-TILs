@@ -1,0 +1,6 @@
+n = input()
+a = list(n)
+a.pop(1)
+a.pop(-2)
+n = ''.join(a)
+print(n)
