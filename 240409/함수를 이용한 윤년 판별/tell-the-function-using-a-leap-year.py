@@ -1,9 +1,7 @@
-def yoon(n):
-    yy = False
-    if n % 4 != 0 or (n % 100 and n % 400 != 0 ):
-        yy = "true"
-    else:
-        yy = "false"
-    return yy
-n = int(input())
-print(yoon(n))
+def is_leap_year(y):
+    if (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0):
+        return "true"
+    return "false"
+
+y = int(input())
+print(is_leap_year(y))
