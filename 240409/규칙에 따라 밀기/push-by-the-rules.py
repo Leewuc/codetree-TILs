@@ -1,7 +1,7 @@
 s = input()
 op = input()
 for i in op:
-    if op == 'L':
+    if i == 'L':
         s = s[1:] + s[0]
     else:
         s = s[-1] + s[:-1]
