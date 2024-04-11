@@ -28,10 +28,4 @@ def get_season(year, month, day):
 year, month, day = map(int, input().split())
 
 # Get season
-season = get_season(year, month, day)
-
-# Print result
-if season == -1:
-    print(-1)
-else:
-    print(season)
+print(get_season(year,month,day))
