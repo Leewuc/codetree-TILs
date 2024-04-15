@@ -1,10 +1,9 @@
-import sys
+def check_different_letters(s):
+    unique_letters = set(s)
+    return "Yes" if len(unique_letters) >= 2 else "No"
 
-string = input()
-cnt_arr = [0] * 26 # lower alpha
-for char in string:
-    cnt_arr[ord(char) - 97] += 1
-    if cnt_arr[ord(char) - 97] == 2:
-        print("Yes")
-        sys.exit(0)
-print("No")
+# 입력 받기
+s = input()
+
+# 결과 출력
+print(check_different_letters(s))
