@@ -1,0 +1,5 @@
+n = input()
+n1 = list(n)
+n1.sort()
+n1 = ''.join(n1)
+print(n1)
