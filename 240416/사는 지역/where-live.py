@@ -1,17 +1,22 @@
-class local:
-    def __init__(self,name,number,loc):
-        self.name = name
-        self.number = number
-        self.loc = loc
-n = int(input())
-peop = []
+class Info:
+    def __init__(self, name, addr, area):
+        self.name= name
+        self.addr= addr
+        self.area= area
+
+n= int(input())
+people= []
 for _ in range(n):
-    x,y,z = tuple(input().split())
-    peop.append(local(x,y,z))
-ll = [person.name for person in peop]
-ll.sort()
+    name, addr, area= tuple(input().split())
+    people.append(Info(name, addr, area))
+
+# 이름 받아오는 리스트 생성
+arr= [person.name for person in people]
+# sort 함수로 이름을 사전순으로 정렬
+arr.sort()
+# 이름 리스트의 가장 끝 이름과 같은 사람의 Info 출력
 for i in range(n):
-    if peop[i].name == ll[n-1]:
-        print(f"name {peop[n-1].name}")
-        print(f"addr {peop[n-1].number}")
-        print(f"city {peop[n-1].loc}")
+    if people[i].name == arr[n-1]:
+        print(f"name {people[i].name}")
+        print(f"addr {people[i].addr}")
+        print(f"city {people[i].area}")
