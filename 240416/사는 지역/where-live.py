@@ -9,7 +9,7 @@ for _ in range(n):
     x,y,z = tuple(input().split())
     peop.append(local(x,y,z))
 ll = [person.name for person in peop]
-ll.sort(reverse=True)
+ll.sort()
 for i in range(n):
     if peop[i].name == ll[n-1]:
         print(f"name {peop[n-1].name}")
