@@ -1,15 +1,10 @@
-n, k, T = list(input().split())
-n, k = int(n), int(k)
-nums = []
-T_nums = []
-
+n, k, start_str = input().split()
+n = int(n)
+k = int(k)
+words = []
 for _ in range(n):
-    nums.append(input())
-
-for i in nums:
-    if len(i) > len(T):
-        if i[0:len(T)] == T:
-            T_nums.append(i)
-
-T_nums.sort()
-print(T_nums[k-1])
+    word = input()
+    if word.startswith(start_str):
+        words.append(word)
+words.sort()
+print(words[k-1])
