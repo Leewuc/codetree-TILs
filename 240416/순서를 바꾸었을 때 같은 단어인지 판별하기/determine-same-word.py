@@ -6,8 +6,10 @@ n2.sort()
 n3.sort()
 boo = False
 for i in range(len(n)):
-    if n2[i] == n3[i]:
-        boo = True
+    if len(n) != len(n1):
+        boo = False
+    elif n2[i] == n3[i]:
+        boo = True       
     else:
         boo = False
 if boo == True:
