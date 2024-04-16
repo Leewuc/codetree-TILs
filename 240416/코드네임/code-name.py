@@ -1,13 +1,16 @@
-class codename:
-    def __init__(self,alph,sco):
-        self.alph = alph
-        self.sco = sco
-name = []
+class Code:
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+codes = []
 for _ in range(5):
-    a,b = input().split()
-    name.append(codename(a,int(b)))
-minsc = 0
-for i in range(1,5):
-    if name[i].sco < name[minsc].sco:
-        minsc += i
-print(name[minsc].alph,name[minsc].sco)
+    name, score = tuple(input().split())
+    codes.append(Code(name, int(score)))
+
+min_idx = 0
+for  i in range(1, 5): # 1 to 4
+    if codes[i].score < codes[min_idx].score:
+        min_idx = i
+
+print(codes[min_idx].name, codes[min_idx].score)
