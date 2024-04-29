@@ -9,13 +9,13 @@ for _ in range(n):
 
     if b == 'L':
         left = cur - a
-        for i in range(left, cur):
+        for i in range(max(left, 0), min(cur, 2001)):
             color[i] = 1  # 흰색 타일로 설정
         cur = left
 
     elif b == 'R':
         right = cur + a
-        for i in range(cur, right):
+        for i in range(max(cur, 0), min(right, 2001)):
             color[i] = 2  # 검은색 타일로 설정
         cur = right
 
