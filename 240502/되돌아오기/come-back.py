@@ -32,3 +32,5 @@ for j in range(n):
         elif a == total:
             print(-1)
             break
+    if n == n1 and n == n2:
+        break
