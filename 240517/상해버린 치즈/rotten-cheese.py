@@ -1,27 +1,27 @@
-n,m,d,s=map(int,input().split()) # 사람, 치즈, 치즈 먹은 수, 아픈 기록 수
-MAX_T=100
+N, M, D, S = map(int, input().split())
+cheese_logs = [[] for _ in range(M+1)]  # M+1 크기의 리스트를 생성하여 각 치즈를 먹은 사람과 시간을 저장합니다.
+sick_logs = [0] * (N+1)  # N+1 크기의 리스트를 생성하여 각 사람이 언제 아팠는지 저장합니다.
 
-array=[[[0 for _ in range(m+1)] for _ in range(n+1)] for _ in range(MAX_T+1)]
-for i in range(d):
-    p,em,t=map(int,input().split()) # 몇번쨰 사람이 몇번째 치즈를 언제 먹었는지 (p,m,t)
-    array[t][p][em]=1
+# 치즈를 먹은 기록 처리
+for _ in range(D):
+    p, m, t = map(int, input().split())
+    cheese_logs[m].append((p, t))
 
-cheese=[0 for _ in range(m+1)]
-for i in range(s):
-    p,t=map(int,input().split())
-    for k in range(t-1,0,-1): # 시간
-        for j in range(1,m+1):
-            if array[k][p][j]:
-                cheese[j]+=1   
-stale=[]
-for i in range(1,m+1):
-    if cheese[i]>=s:
-        stale.append(i)
+# 아픈 기록 처리
+for _ in range(S):
+    p, t = map(int, input().split())
+    sick_logs[p] = t
 
-people=set()
-for i in range(1,MAX_T+1): # 시간
-    for j in range(1,n+1): # 사람
-        for k in stale: 
-            if array[i][j][k]:
-                people.add(j)
-print(len(people))
+# 각 치즈별로 확인하여 최대 몇 명이 아플 수 있는지 계산합니다.
+max_sick = 0
+for m in range(1, M+1):
+    possible_sick = 0
+    for p, t in cheese_logs[m]:
+        if sick_logs[p] == 0 or sick_logs[p] >= t+1:  # 아픈 기록이 없거나, 치즈를 먹은 후 1초 이상 지나서 아프다면
+            possible_sick += 1
+        elif sick_logs[p] < t+1:  # 아픈 기록이 치즈를 먹은 시간보다 빠르다면, 이 치즈는 상한 치즈가 아님
+            possible_sick = 0
+            break
+    max_sick = max(max_sick, possible_sick)
+
+print(max_sick)
