@@ -1,39 +1,27 @@
-N, M, D, S = map(int, input().split())
-eats = [
-    []
-    for _ in range(N)
-]
+n,m,d,s=map(int,input().split()) # 사람, 치즈, 치즈 먹은 수, 아픈 기록 수
+MAX_T=100
 
-for _ in range(D):
-    p, m, t = tuple(map(int, input().split()))
-    eats[p-1].append([m, t])
+array=[[[0 for _ in range(m+1)] for _ in range(n+1)] for _ in range(MAX_T+1)]
+for i in range(d):
+    p,em,t=map(int,input().split()) # 몇번쨰 사람이 몇번째 치즈를 언제 먹었는지 (p,m,t)
+    array[t][p][em]=1
 
-ills = [
-    tuple(map(int, input().split()))
-    for _ in range(S)
-]
+cheese=[0 for _ in range(m+1)]
+for i in range(s):
+    p,t=map(int,input().split())
+    for k in range(t-1,0,-1): # 시간
+        for j in range(1,m+1):
+            if array[k][p][j]:
+                cheese[j]+=1   
+stale=[]
+for i in range(1,m+1):
+    if cheese[i]>=s:
+        stale.append(i)
 
-for i in range(N):
-    eats[i].sort(lambda x: x[-1])
-ills.sort(lambda x: x[-1])
-
-answer = set(range(1, M+1))
-
-for ill_p, ill_t in ills:
-    cheeze = set()
-    for eat_m, eat_t in eats[ill_p-1]:
-        if eat_t >= ill_t:
-            break
-        cheeze.add(eat_m)
-    answer = answer & cheeze
-
-cnt = 0
-for eat in eats:
-    found = False
-    for m, t in eat:
-        if m in answer:
-            found = True
-            break
-    if found:
-        cnt += 1
-print(cnt)
+people=set()
+for i in range(1,MAX_T+1): # 시간
+    for j in range(1,n+1): # 사람
+        for k in stale: 
+            if array[i][j][k]:
+                people.add(j)
+print(len(people))
