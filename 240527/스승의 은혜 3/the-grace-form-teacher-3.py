@@ -1,35 +1,29 @@
-n, budget = map(int, input().split())
+N, B = map(int, input().split())
+want = [
+    tuple(map(int, input().split()))
+    for _ in range(N)
+]
 
-students = []
-for _ in range(n):
-    students.append(list(map(int, input().split())))
+# 정렬 기준?
+# x[0]//2 + x[1] or x[0]+x[1]
+want.sort(key=lambda x:(x[0]+x[1]))
 
-
-def calculate(discount_idx, students):
-    total = 0
+# 할인 쿠폰을 i번째 학생에게 쓰는 경우
+ans = -1
+for i in range(N):
+    money = B
     cnt = 0
-    for idx, order in enumerate(students):
-        if idx == discount_idx:
-            price, shipping = order[0]/2, order[1]
+    for j in range(N):
+        if j == i:
+            if money >= want[j][0] // 2 + want[j][1]:
+                money -= (want[j][0] // 2 + want[j][1])
+                cnt += 1
+
         else:
-            price, shipping = order[0], order[1]
-        if (total + price + shipping) > budget:
-            return total, cnt
-        cnt += 1
-        total += price + shipping
- 
-    return total, cnt
+            if money >= want[j][0] + want[j][1]:
+                money -= (want[j][0] + want[j][1])
+                cnt += 1
 
-def c_sort(item):
-    return item[0] + item[1]
+    ans = max(ans, cnt)
 
-max_cnt = -1
-arr_sorted = sorted(students, key=c_sort)
-
-for i in range(n):
-    total, cnt = calculate(i, arr_sorted)
-
-    if total <= budget:
-        max_cnt = max(max_cnt, cnt)
-
-print(max_cnt)
+print(ans)
